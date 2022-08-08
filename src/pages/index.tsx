@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { HeadFC } from "gatsby"
 import {
   Box,
   Card,
@@ -6,15 +7,14 @@ import {
   CardHeader,
   Grid,
 } from "@mui/material";
-import { Fragment, ReactElement, useEffect, useState } from "react";
-import {Startup} from "../Types/Startup";
+import {  ReactElement } from "react";
 import {expectedStartups} from "../data/startups-data"
 
-export default function StartupList(): ReactElement {
+const IndexPage = (): ReactElement =>{
 
 
   return (
-    <Fragment>
+    <main>
       <Grid id="startup-list" container direction="row" spacing={2}>
         {expectedStartups.map((startup) => {
           return (
@@ -64,6 +64,10 @@ export default function StartupList(): ReactElement {
           );
         })}
       </Grid>
-    </Fragment>
+    </main>
   );
 }
+
+export default IndexPage
+
+export const Head: HeadFC = () => <title>Home Page</title>
